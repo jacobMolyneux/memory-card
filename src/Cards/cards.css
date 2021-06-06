@@ -1,0 +1,7 @@
+.characterCardDiv {
+  border: 1px solid black;
+  height: 100px;
+  width: 75px;
+  margin: 20px;
+  border-radius: 5px;
+}

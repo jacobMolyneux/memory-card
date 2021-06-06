@@ -5,17 +5,19 @@ export default class Card extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            names: 'hello'
+            names: ['test1', 'test2', 'test3', 'test4']
         }
         this.CardClicked = () => {
             console.log("card is clicked");
         }
-        
-        
+        this.ChooseName = () => {
+            this.setState({names: this.state.names[Math.round(((Math.random())*16)/4)]});
+            console.log('clicked');
+        }
     }
     render(){
         return(
-            <div onClick = {this.CardClicked} className = 'characterCardDiv'>
+            <div onClick = {this.ChooseName} className = 'characterCardDiv'>
                 <div className = 'logo'>Logo</div>
                 <div className = 'Name'>
                     <h1>{this.state.names}</h1>

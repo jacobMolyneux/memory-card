@@ -5,16 +5,15 @@ import './App.css';
 class App extends React.Component {
   constructor(props){
     super(props);
+    
 
     this.state = {
       score: 0,
       highScore: 0,
+      
     } 
-    this.ScoreIncrement = (e) => {
-      e.preventDefault();
-       this.setState(this.state.score + 1); 
-       console.log(this.state.score);
-     }
+    
+   
   }
  
   render(){
@@ -24,7 +23,7 @@ class App extends React.Component {
         <h1>Score: {this.state.score}</h1>
         <h1>HighScore: {this.state.highScore}</h1>
       </div>
-      <Card className = "card" id = "1"/>
+      <Card className = "card" id = "1" onClick = {this.ScoreIncrement}/>
       <Card className = "card" id = "2"/>
       <Card className = "card" id = "3"/>
       <Card className = "card" id = "4"/>

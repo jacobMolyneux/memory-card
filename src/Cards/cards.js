@@ -17,10 +17,10 @@ export default class Card extends React.Component{
     }
     render(){
         return(
-            <div onClick = {this.ChooseName} className = 'characterCardDiv'>
+            <div className = 'characterCardDiv'>
                 <div className = 'logo'>Logo</div>
                 <div className = 'Name'>
-                    <h1>{this.state.names}</h1>
+                    <h1>{this.state.names[Math.round(((Math.random())*12)/4)]}</h1>
                 </div>
             </div>
         )

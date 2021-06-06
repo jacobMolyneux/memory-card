@@ -5,11 +5,13 @@ export default class Card extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            names: ['hello']
+            names: 'hello'
         }
         this.CardClicked = () => {
             console.log("card is clicked");
         }
+        
+        
     }
     render(){
         return(

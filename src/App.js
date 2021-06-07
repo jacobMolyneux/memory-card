@@ -10,27 +10,39 @@ class App extends React.Component {
       score: 0,
       highScore: 0,
       memoryCard: [],
-      names: ['Test1', 'Test2', 'Test3', 'Test4']
+      names: ["test1", "test2", "test3", "test4", "test5", "test6", "test6"],
+      name1: '',
+      name2: '',
+      name3: '',
+      name4: '',
     } 
     
-    this.ScoreIncrement = () => {
-      this.setState({score: this.state.score + 1});
-      console.log('score Increment test');
-    }
     this.userMistake = () => {
-      this.setState({higherScore: this.state.score})
+      this.setState({highScore: this.state.score})
       this.setState({score: 0})
+      this.generateNameFromArray()
     }
     this.handleClick = (e) => {
       this.memoryCard.push(Card.state.names);
       console.log('handleClick test')
       this.preventDefault(e);
     }
-    this.ChooseName = () => {
-      this.setState({names: this.state.names[Math.round(((Math.random())*16)/4)]});
-      console.log("chooseName function Test");
+    
+   this.componentDidMount = () => {
+    this.generateNameFromArray()
+   }
+   this.generateNameFromArray = () =>{
+    this.setState({name1: this.state.names[Math.round(((Math.random())*16)/4)]})
+    this.setState({name2: this.state.names[Math.round(((Math.random())*16)/4)]})
+    this.setState({name3: this.state.names[Math.round(((Math.random())*16)/4)]})
+    this.setState({name4: this.state.names[Math.round(((Math.random())*16)/4)]})
+   }
+   this.ScoreIncrement = () => {
+    this.setState({score: this.state.score + 1});
+    console.log('score Increment test');
   }
-   
+
+  
   }
  
   render(){
@@ -42,10 +54,10 @@ class App extends React.Component {
       </div>
       <button onClick = {this.ScoreIncrement}>Increment</button>
       <button onClick = {this.userMistake}>Mistake</button>
-      <Card onClick = {this.ScoreIncrement} className = "card" id = "1" name = 'Test1' />
-      <Card onClick = {this.ScoreIncrement}className = "card" id = "2" name = 'Test2'/>
-      <Card onClick = {this.ScoreIncrement}className = "card" id = "3" name = 'Test3'/>
-      <Card onClick = {this.ScoreIncrement} className = "card" id = "4" name = 'Test4'/>
+      <Card onClick = {this.ScoreIncrement} className = "card" name = {this.state.name1} />
+      <Card onClick = {this.ScoreIncrement} className = "card" name = {this.state.name2}/>
+      <Card onClick = {this.ScoreIncrement} className = "card" name = {this.state.name3}/>
+      <Card onClick = {this.ScoreIncrement} className = "card" name = {this.state.name4}/>
     </div>
   );}
 }

@@ -32,8 +32,8 @@ class App extends React.Component {
     this.generateNameFromArray()
    }
    this.generateNameFromArray = () =>{
-    this.setState({name1: this.state.names[Math.round(((Math.random())*16)/4)]})
-    this.setState({name2: this.state.names[Math.round(((Math.random())*16)/4)]})
+    this.setState({name1: this.state.names[Math.round(((Math.random())*20)/4)]})
+    this.setState({name2: this.state.names[Math.round(((Math.random())*17)/4)]})
     this.setState({name3: this.state.names[Math.round(((Math.random())*16)/4)]})
     this.setState({name4: this.state.names[Math.round(((Math.random())*16)/4)]})
    }
@@ -54,10 +54,19 @@ class App extends React.Component {
       </div>
       <button onClick = {this.ScoreIncrement}>Increment</button>
       <button onClick = {this.userMistake}>Mistake</button>
-      <Card onClick = {this.ScoreIncrement} className = "card" name = {this.state.name1} />
-      <Card onClick = {this.ScoreIncrement} className = "card" name = {this.state.name2}/>
-      <Card onClick = {this.ScoreIncrement} className = "card" name = {this.state.name3}/>
-      <Card onClick = {this.ScoreIncrement} className = "card" name = {this.state.name4}/>
+
+      <div onClick = {this.ScoreIncrement}>
+        <Card onClick = {this.ScoreIncrement} className = "card" name = {this.state.name1} />
+      </div>
+      <div onClick = {this.ScoreIncrement}>
+        <Card  className = "card" name = {this.state.name2}/>
+      </div>
+      <div onClick = {this.ScoreIncrement}>
+        <Card  className = "card" name = {this.state.name3}/>
+      </div>
+      <div onClick = {this.ScoreIncrement}>
+        <Card className = "card" name = {this.state.name4}/>
+      </div>
     </div>
   );}
 }

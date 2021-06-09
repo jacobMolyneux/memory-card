@@ -16,16 +16,30 @@ class App extends React.Component {
       name3: '',
       name4: '',
     } 
-    
+    this.cardClick = () => {
+      this.ScoreIncrement();
+      console.log('card Clicked');
+      this.generateNameFromArray();
+    }
     this.userMistake = () => {
-      this.setState({highScore: this.state.score})
-      this.setState({score: 0})
+      if (this.state.score >= this.state.highScore){
+        this.setState({highScore: this.state.score})
+        this.setState({score: 0})
+      }
+      else if (this.state.score < this.state.highScore){
+        this.setState({score: 0})
+      }
+      
       this.generateNameFromArray()
     }
     this.handleClick = (e) => {
       this.memoryCard.push(Card.state.names);
       console.log('handleClick test')
       this.preventDefault(e);
+    }
+    this.addToList =() => {
+      this.setState(this.state.memoryCard.push(this.state.name1))
+      console.log('Add to list check')
     }
     
    this.componentDidMount = () => {
@@ -55,16 +69,16 @@ class App extends React.Component {
       <button onClick = {this.ScoreIncrement}>Increment</button>
       <button onClick = {this.userMistake}>Mistake</button>
 
-      <div onClick = {this.ScoreIncrement}>
-        <Card onClick = {this.ScoreIncrement} className = "card" name = {this.state.name1} />
+      <div onClick = {this.cardClick}>
+        <Card className = "card" name = {this.state.name1} />
       </div>
-      <div onClick = {this.ScoreIncrement}>
+      <div onClick = {this.cardClick}>
         <Card  className = "card" name = {this.state.name2}/>
       </div>
-      <div onClick = {this.ScoreIncrement}>
+      <div onClick = {this.cardClick}>
         <Card  className = "card" name = {this.state.name3}/>
       </div>
-      <div onClick = {this.ScoreIncrement}>
+      <div onClick = {this.cardClick}>
         <Card className = "card" name = {this.state.name4}/>
       </div>
     </div>
